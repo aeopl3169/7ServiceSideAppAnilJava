@@ -19,7 +19,12 @@
         <!--    exported:true the service will be visible to other apps     -->
         <service
             android:name=".MyService"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="sample.action.value" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -67,12 +67,13 @@ public class MyService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         Log.i(SERVICE, "onBind: "+intent.getPackage());
-        if (intent.getPackage().equals("com.shiva.serviceanil")){
+        /*if (intent.getPackage().equals("com.shiva.serviceanil")){
             return randomNumberMessenger.getBinder(); // directly getting IBinder interface from Messenger.
         } else {
             Toast.makeText(getApplicationContext(), "Wrong Package",Toast.LENGTH_SHORT).show();
             return null;
-        }
+        }*/
+        return randomNumberMessenger.getBinder();
     }
 
     @Override
