@@ -8,6 +8,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -65,8 +66,13 @@ public class MyService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        Log.i(SERVICE, "onBind: ");
-        return randomNumberMessenger.getBinder(); // directly getting IBinder interface from Messenger.
+        Log.i(SERVICE, "onBind: "+intent.getPackage());
+        if (intent.getPackage().equals("com.shiva.serviceanil")){
+            return randomNumberMessenger.getBinder(); // directly getting IBinder interface from Messenger.
+        } else {
+            Toast.makeText(getApplicationContext(), "Wrong Package",Toast.LENGTH_SHORT).show();
+            return null;
+        }
     }
 
     @Override
