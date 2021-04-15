@@ -20,10 +20,11 @@
         <service
             android:name=".MyService"
             android:exported="true">
-            <intent-filter>
+<!--    Implicit intents will not work from API 21 lollipop 5.0 and above java.lang.IllegalArgumentException: Service Intent must be explicit: Intent    -->
+            <!--<intent-filter>
                 <action android:name="sample.action.value" />
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            </intent-filter>-->
         </service>
     </application>
 
