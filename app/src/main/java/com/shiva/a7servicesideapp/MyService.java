@@ -87,6 +87,7 @@ public class MyService extends Service {
     public void onDestroy() {
         super.onDestroy();
         Log.i(SERVICE, "onDestroy: ");
+        Toast.makeText(this,"Service side app closed", Toast.LENGTH_LONG).show();
         stopRandomNumberGenerator();
     }
 
